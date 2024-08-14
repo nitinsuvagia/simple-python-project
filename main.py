@@ -17,17 +17,17 @@ def hello():
     try: 
         hostname = socket.gethostname()
         host_ip = socket.gethostbyname(hostname) 
-        host_ip1  = socket.gethostbyname('www.google.com') 
+
     except socket.gaierror: 
     
         # this means could not resolve the host 
         return "there was an error resolving the host"
     
     # connecting to the server 
-    s.connect((host_ip1, port)) 
+    # s.connect((host_ip, port)) 
     
-    return '''the socket has successfully connected to google <br/>Hostname : {} <br/>IP :{}'''.format(hostname,host_ip)
-
+    return '''Host Connected Successfully<br/>Hostname : {} <br/>IP :{}'''.format(hostname,host_ip)
+ 
 @app.errorhandler(500)
 def server_error(e):
     logging.exception('An error occurred during a request.')

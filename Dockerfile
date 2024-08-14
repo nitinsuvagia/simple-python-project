@@ -1,3 +1,5 @@
+#!/bin/bash
+
 FROM python:2.7
 
 # Creating Application Source Code Directory
@@ -24,4 +26,4 @@ EXPOSE $PORT
 VOLUME ["/app-data"]
 
 # Running Python Application
-CMD python.bat
+CMD gunicorn -b :$PORT -c gunicorn.conf.py main:app
